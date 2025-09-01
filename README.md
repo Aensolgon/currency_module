@@ -41,8 +41,8 @@
     DB_USERNAME=laravel
     DB_PASSWORD=laravel
 
-    FREECURRENCY_API_KEY=ВАШ_API_KEY
     CURRENCY_BASE=USD
+    FREECURRENCYAPI_KEY=ВАШ_API_KEY
     ```
 
 4. **Примените миграции и сидеры:**
@@ -79,7 +79,7 @@ make build        # Собрать Docker-образы
 make up           # Поднять контейнеры
 make down         # Остановить контейнеры
 make restart      # Перезапустить контейнеры
-make migrate      # Применить миграции
-make seed         # Миграции + сидеры
+make migrate-seed # Применить миграции и сиды
+make currency-refresh # Выполнить artisan команду на обновление курсов
 make fix-perms    # Исправить права и очистить кеши
 make logs         # Просмотр логов контейнеров

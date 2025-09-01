@@ -26,9 +26,9 @@ restart: down up
 currency-refresh:
 	$(DOCKER_COMPOSE) run --rm app php artisan currency:refresh
 
-# Запуск миграций
-migrate:
-	$(DOCKER_COMPOSE) run --rm app php artisan migrate
+# Запуск миграций и сидов
+migrate-seed:
+	$(DOCKER_COMPOSE) run --rm app php artisan migrate --seed
 
 # Запуск миграций с сидерами
 seed:
