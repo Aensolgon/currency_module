@@ -4,12 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\ExchangeRate;
-use App\Services\CurrencyConverter;
-use App\Services\FreeCurrencyApiClient;
 
 class CurrencyRateController extends Controller
 {
-    public function index(CurrencyConverter $currencyConverter)
+    public function index()
     {
         $base = config('currency.base', 'USD');
 

@@ -14,9 +14,9 @@ down:
 # Перезапуск
 restart: down up
 
-# Выполнить artisan команду
-artisan:
-	$(DOCKER_COMPOSE) run --rm app php artisan $(filter-out $@,$(MAKECMDGOALS))
+# Выполнить artisan команду на обновление курсов
+currency-refresh:
+	$(DOCKER_COMPOSE) run --rm app php artisan currency:refresh
 
 # Запуск миграций
 migrate:

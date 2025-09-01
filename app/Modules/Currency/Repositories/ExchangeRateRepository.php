@@ -1,14 +1,24 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Modules\Currency\Repositories;
 
-use App\DTO\ExchangeRateDTO;
 use App\Exceptions\RepositoryException;
 use App\Models\ExchangeRate;
+use App\Modules\Currency\Contracts\CurrencyMapperInterface;
+use App\Modules\Currency\Contracts\CurrencyRepositoryInterface;
+use App\Modules\Currency\DTO\ExchangeRateDTO;
 use Illuminate\Support\Facades\DB;
 
 class ExchangeRateRepository implements CurrencyRepositoryInterface
 {
+
+    private CurrencyMapperInterface $currencyMapper;
+
+    public function __construct(CurrencyMapperInterface $currencyMapper)
+    {
+        $this->currencyMapper = $currencyMapper;
+    }
+
     public function saveRate(ExchangeRateDTO $rateDTO): void
     {
         try {
@@ -39,13 +49,13 @@ class ExchangeRateRepository implements CurrencyRepositoryInterface
     {
         $row = ExchangeRate::where(['base' => $base, 'code' => $code])->first();
         if (!$row) return null;
-        return new ExchangeRateDTO($row->base, $row->code, (float)$row->rate, $row->fetched_at);
+        return $this->currencyMapper->toDTO($row);
     }
 
     public function getAllRates(string $base): array
     {
         return ExchangeRate::where('base', $base)->get()
-            ->map(fn($row) => new ExchangeRateDTO($row->base, $row->code, (float)$row->rate, $row->fetched_at))
+            ->map(fn($row) => $this->currencyMapper->toDTO($row))
             ->all();
     }
 }

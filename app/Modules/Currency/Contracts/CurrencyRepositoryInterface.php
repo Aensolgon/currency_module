@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Modules\Currency\Contracts;
 
-use App\DTO\ExchangeRateDTO;
 use App\Exceptions\RepositoryException;
+use App\Modules\Currency\DTO\ExchangeRateDTO;
 
 interface CurrencyRepositoryInterface
 {

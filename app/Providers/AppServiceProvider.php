@@ -2,6 +2,14 @@
 
 namespace App\Providers;
 
+use App\Modules\Currency\Contracts\CurrencyApiClientInterface;
+use App\Modules\Currency\Contracts\CurrencyConverterInterface;
+use App\Modules\Currency\Contracts\CurrencyMapperInterface;
+use App\Modules\Currency\Contracts\CurrencyRepositoryInterface;
+use App\Modules\Currency\Mappers\ExchangeRateMapper;
+use App\Modules\Currency\Repositories\ExchangeRateRepository;
+use App\Modules\Currency\Services\CurrencyConverter;
+use App\Modules\Currency\Services\FreeCurrencyApiClient;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -12,18 +20,23 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->singleton(
-            \App\Repositories\CurrencyRepositoryInterface::class,
-            \App\Repositories\ExchangeRateRepository::class
+            CurrencyRepositoryInterface::class,
+            ExchangeRateRepository::class
         );
 
         $this->app->singleton(
-            \App\Services\CurrencyApiClientInterface::class,
-            \App\Services\FreeCurrencyApiClient::class
+            CurrencyApiClientInterface::class,
+            FreeCurrencyApiClient::class
         );
 
         $this->app->singleton(
-            \App\Services\CurrencyConverterInterface::class,
-            \App\Services\CurrencyConverter::class
+            CurrencyConverterInterface::class,
+            CurrencyConverter::class
+        );
+
+        $this->app->singleton(
+            CurrencyMapperInterface::class,
+            ExchangeRateMapper::class
         );
     }
 

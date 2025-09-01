@@ -2,15 +2,15 @@
 
 namespace App\Console\Commands;
 
-use App\DTO\ExchangeRateDTO;
 use App\Exceptions\ApiException;
-use App\Exceptions\RepositoryException;
 use App\Exceptions\CurrencyException;
-use App\Repositories\CurrencyRepositoryInterface;
-use App\Services\CurrencyApiClientInterface;
+use App\Exceptions\RepositoryException;
 use App\Models\Currency;
-use Carbon\CarbonImmutable;
+use App\Modules\Currency\Contracts\CurrencyApiClientInterface;
+use App\Modules\Currency\Contracts\CurrencyRepositoryInterface;
+use App\Modules\Currency\DTO\ExchangeRateDTO;
 use Illuminate\Console\Command;
+use Illuminate\Support\Carbon;
 
 class RefreshExchangeRate extends Command
 {
@@ -32,7 +32,7 @@ class RefreshExchangeRate extends Command
     public function handle(): int
     {
         $base = config('currency.base', 'USD');
-        $now = CarbonImmutable::now();
+        $now = Carbon::now();
 
         try {
             $codes = Currency::pluck('code')->all();

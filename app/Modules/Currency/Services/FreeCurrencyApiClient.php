@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Services;
+namespace App\Modules\Currency\Services;
 
+use App\Exceptions\ApiException;
+use App\Modules\Currency\Contracts\CurrencyApiClientInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Facades\Log;
-use App\Exceptions\ApiException;
 
 class FreeCurrencyApiClient implements CurrencyApiClientInterface
 {

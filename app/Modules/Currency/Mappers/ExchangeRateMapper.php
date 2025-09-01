@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Mappers;
+namespace App\Modules\Currency\Mappers;
 
-use App\DTO\ExchangeRateDTO;
 use App\Models\ExchangeRate;
+use App\Modules\Currency\Contracts\CurrencyMapperInterface;
+use App\Modules\Currency\DTO\ExchangeRateDTO;
+use Illuminate\Support\Carbon;
 
-class ExchangeRateMapper
+class ExchangeRateMapper implements CurrencyMapperInterface
 {
     public function toDTO(ExchangeRate $model): ExchangeRateDTO
     {
@@ -13,7 +15,7 @@ class ExchangeRateMapper
             $model->base,
             $model->code,
             $model->rate,
-            new \DateTimeImmutable($model->fetched_at)
+            new Carbon($model->fetched_at)
         );
     }
 
