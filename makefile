@@ -11,6 +11,14 @@ up:
 down:
 	$(DOCKER_COMPOSE) down
 
+# Сгенерировать ключ
+generate-key:
+	$(DOCKER_COMPOSE) run --rm app php artisan key:generate
+
+# Собрать фронт
+vite-build:
+	$(DOCKER_COMPOSE) run --rm app npm install npm run --build
+
 # Перезапуск
 restart: down up
 
@@ -24,7 +32,7 @@ migrate:
 
 # Запуск миграций с сидерами
 seed:
-	$(DOCKER_COMPOSE) run --rm app php artisan migrate --seed
+	$(DOCKER_COMPOSE) run --rm app php artisan db:seed
 
 # Исправление прав и очистка кешей
 fix-perms:

@@ -17,7 +17,7 @@ class FreeCurrencyApiClient implements CurrencyApiClientInterface
     public function __construct()
     {
         $this->baseUrl = rtrim(config('currency.freecurrencyapi.url'), '/');
-        $this->apiKey = (string) config('currency.freecurrencyapi.key');
+        $this->apiKey = (string) config('currency.freecurrencyapi.api_key');
 
         $this->client = new Client([
             'base_uri' => $this->baseUrl,
