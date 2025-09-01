@@ -8,4 +8,4 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
 
-Schedule::command('currency:refresh')->dailyAt('17:10');
+Schedule::command('currency:refresh')->dailyAt('08:00');

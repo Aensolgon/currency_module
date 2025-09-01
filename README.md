@@ -21,8 +21,8 @@
 
 1. **Склонируйте проект и перейдите в директорию:**
     ```bash
-    git clone https://your-repo-url.git
-    cd your-project
+    git clone https://github.com/Aensolgon/currency_module
+    cd currency_module
     ```
 
 2. **Соберите и запустите контейнеры:**
@@ -31,12 +31,7 @@
     make up
     ```
 
-3. **Установите Laravel (если ещё не установлен):**
-    ```bash
-    make install
-    ```
-
-4. **Настройте `.env`:**
+3. **Настройте `.env`:**
    Скопируйте `.env.example` в `.env` и измените при необходимости:
     ```env
     DB_CONNECTION=mysql
@@ -47,21 +42,22 @@
     DB_PASSWORD=laravel
 
     FREECURRENCY_API_KEY=ВАШ_API_KEY
+    CURRENCY_BASE=USD
     ```
 
-5. **Примените миграции и сидеры:**
+4. **Примените миграции и сидеры:**
     ```bash
     make migrate
     # или
     make seed
     ```
 
-6. **Исправьте права и очистите кеши (если нужно):**
+5. **Исправьте права и очистите кеши (если нужно):**
     ```bash
     make fix-perms
     ```
 
-7. **Откройте проект в браузере:**
+6. **Откройте проект в браузере:**
    [http://localhost:8000](http://localhost:8000)
 
 ---

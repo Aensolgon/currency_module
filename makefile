@@ -14,13 +14,6 @@ down:
 # Перезапуск
 restart: down up
 
-# Установить Laravel, если нет composer.json
-install:
-	@if [ ! -f composer.json ]; then \
-		$(DOCKER_COMPOSE) run --rm app composer create-project laravel/laravel . ; \
-	fi
-	$(DOCKER_COMPOSE) run --rm app composer install
-
 # Выполнить artisan команду
 artisan:
 	$(DOCKER_COMPOSE) run --rm app php artisan $(filter-out $@,$(MAKECMDGOALS))
