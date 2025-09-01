@@ -70,7 +70,6 @@ make build        # Собрать Docker-образы
 make up           # Поднять контейнеры
 make down         # Остановить контейнеры
 make restart      # Перезапустить контейнеры
-make install      # Установить Laravel и зависимости
 make migrate      # Применить миграции
 make seed         # Миграции + сидеры
 make artisan <cmd> # Выполнить artisan команду, например: make artisan route:list
