@@ -17,7 +17,7 @@ generate-key:
 
 # Собрать фронт
 vite-build:
-	$(DOCKER_COMPOSE) run --rm app npm install npm run --build
+	$(DOCKER_COMPOSE) run --rm app npm run build
 
 # Перезапуск
 restart: down up

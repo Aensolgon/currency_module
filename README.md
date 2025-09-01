@@ -47,10 +47,9 @@
 
 4. **Примените миграции и сидеры:**
     ```bash
-    make migrate
-    # и
-    make seed
+    make migrate-seed
     ```
+   
 5. **Сгенерировать ключ:**
     ```bash
     make generate-key
