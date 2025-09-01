@@ -15,6 +15,10 @@ down:
 generate-key:
 	$(DOCKER_COMPOSE) run --rm app php artisan key:generate
 
+# Выполнить npm install
+npm-install:
+	$(DOCKER_COMPOSE) run --rm app npm install
+
 # Собрать фронт
 vite-build:
 	$(DOCKER_COMPOSE) run --rm app npm run build

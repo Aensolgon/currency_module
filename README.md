@@ -55,17 +55,22 @@
     make generate-key
     ```
 
-6. **Собрать фронт прилжения:**
+6. **Выполнить npm install:**
+    ```bash
+    make npm-install
+    ```
+
+7. **Собрать фронт прилжения:**
     ```bash
     make vite-build
     ```
    
-7. **Исправьте права и очистите кеши (если нужно):**
+8. **Исправьте права и очистите кеши (если нужно):**
     ```bash
     make fix-perms
     ```
 
-8. **Откройте проект в браузере:**
+9. **Откройте проект в браузере:**
    [http://localhost:8000](http://localhost:8000)
 
 ---
@@ -78,6 +83,8 @@ make build        # Собрать Docker-образы
 make up           # Поднять контейнеры
 make down         # Остановить контейнеры
 make restart      # Перезапустить контейнеры
+make npm-install  # Выполнить npm install
+make vite-build   # Собрать фронт
 make migrate-seed # Применить миграции и сиды
 make currency-refresh # Выполнить artisan команду на обновление курсов
 make fix-perms    # Исправить права и очистить кеши
