@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\CurrencyConvertRequest;
 use App\Modules\Currency\Contracts\CurrencyConverterInterface;
 use Illuminate\Http\JsonResponse;
 
-class CurrencyController extends Controller
+class CurrencyConverterController extends Controller
 {
     public function convert(CurrencyConvertRequest $request, CurrencyConverterInterface $converter): JsonResponse
     {
