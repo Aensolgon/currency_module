@@ -42,10 +42,6 @@ migrate-seed:
 seed:
 	$(DOCKER_COMPOSE) run --rm app php artisan db:seed
 
-# Исправление прав и очистка кешей
-fix-perms:
-	$(DOCKER_COMPOSE) run --rm app ./fix_permissions.sh
-
 # Просмотр логов
 logs:
 	$(DOCKER_COMPOSE) logs -f

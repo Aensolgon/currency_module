@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "8888d83e-acbb-40d9-a5ec-228a77ffda72",
+		"name": "CURRENCY_CONVERTER",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11976939",
+		"_collection_link": "https://grey-resonance-786673.postman.co/workspace/USPIO~d40e2d00-3944-4c5e-bef3-a6b9e0a67714/collection/11976939-8888d83e-acbb-40d9-a5ec-228a77ffda72?action=share&source=collection_link&creator=11976939"
+	},
+	"item": [
+		{
+			"name": "CONVERT",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 123,\n    \"from\": \"USD\",\n    \"to\": \"EUR\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/currency/convert",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"currency",
+						"convert"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

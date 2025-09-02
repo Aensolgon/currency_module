@@ -10,13 +10,36 @@
 
 ---
 
+Обновление курсов происходит **1 раз в сутки (08:00)**, через планировщик.
+
+Обновление происходит на основе валют находящихся в таблице **currencies**, которая предзаполнена валютами из ([CurrencySeeder.php](database/seeders/CurrencySeeder.php)).
+В случае отсутствия валют в этой таблице, при автоматическом обновлении курсов, будут обновлены все доступные курсы валют из ([freecurrencyapi.com](https://freecurrencyapi.com)).
+
+При необходимости можно обновить курсы не дожидаясь планировшика, через команду:
+```bash
+  make currency-refresh
+```
+Для тестирования конвертации валюты предусмотрен запрос:
+```angular2html
+POST http://localhost:8000/api/currency/convert
+
+Body:
+ &#123;
+    "amount": 123,
+    "from": "USD",
+    "to": "EUR"
+ &#125;
+```
+В папке **postman** находиться файл (CURRENCY_CONVERTER.postman_collection.json) с предзаполненными данными.
+
+---
+
 ## Требования
 - Docker & Docker Compose
 - Make (установлен на macOS/Linux)
 - Для macOS: установленный Homebrew, PHP и Composer (если хотите запускать без Docker)
 
 ---
-
 ## Установка и запуск
 
 1. **Склонируйте проект и перейдите в директорию:**
@@ -70,12 +93,7 @@
     make vite-build
     ```
    
-9. **Исправьте права и очистите кеши (если нужно):**
-    ```bash
-    make fix-perms
-    ```
-
-10. **Откройте проект в браузере:**
+9. **Откройте проект в браузере:**
    [http://localhost:8000](http://localhost:8000)
 
 ---
@@ -92,5 +110,4 @@ make npm-install  # Выполнить npm install
 make vite-build   # Собрать фронт
 make migrate-seed # Применить миграции и сиды
 make currency-refresh # Выполнить artisan команду на обновление курсов
-make fix-perms    # Исправить права и очистить кеши
 make logs         # Просмотр логов контейнеров
