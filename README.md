@@ -30,7 +30,7 @@ Body:
     "to": "EUR"
  }
 ```
-В папке **postman** находиться файл (CURRENCY_CONVERTER.postman_collection.json) с предзаполненными данными.
+В папке **postman** находиться файл ([CURRENCY_CONVERTER.postman_collection.json](postman/CURRENCY_CONVERTER.postman_collection.json)) с предзаполненными данными.
 
 ---
 
