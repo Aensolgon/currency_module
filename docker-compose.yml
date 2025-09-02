@@ -3,7 +3,7 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
-        container_name: test_app
+        container_name: laravel_app
         ports:
             - "8000:8000"
         volumes:
@@ -14,7 +14,7 @@ services:
 
     db:
         image: mysql:8.0
-        container_name: test_db
+        container_name: laravel_db
         ports:
             - "3306:3306"
         environment:
@@ -29,7 +29,7 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
-        container_name: test-scheduler
+        container_name: laravel-scheduler
         working_dir: /var/www
         command: php artisan schedule:work
         volumes:
