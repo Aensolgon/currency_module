@@ -17,7 +17,7 @@ generate-key:
 
 # Выполнить npm install
 npm-install:
-	npm install
+	$(DOCKER_COMPOSE) run --rm app npm install
 
 # Выполнить npm install
 composer-install:
