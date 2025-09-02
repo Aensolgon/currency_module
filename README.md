@@ -88,7 +88,7 @@ Body:
     make composer-install
     ```
    
-8. **Собрать фронт прилжения:**
+8. **Собрать фронт приложения:**
     ```bash
     make vite-build
     ```
