@@ -24,11 +24,11 @@
 POST http://localhost:8000/api/currency/convert
 
 Body:
- &#123;
+ {
     "amount": 123,
     "from": "USD",
     "to": "EUR"
- &#125;
+ }
 ```
 В папке **postman** находиться файл (CURRENCY_CONVERTER.postman_collection.json) с предзаполненными данными.
 
