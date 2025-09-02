@@ -17,11 +17,11 @@ generate-key:
 
 # Выполнить npm install
 npm-install:
-	$(DOCKER_COMPOSE) run --rm app npm install
+	npm install
 
 # Выполнить npm install
 composer-install:
-	$(DOCKER_COMPOSE) run --rm app composer install
+	composer install
 
 # Собрать фронт
 vite-build:
